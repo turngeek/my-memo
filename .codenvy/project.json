@@ -1,17 +1,20 @@
 {
   "project": {
+    "name": "my-memo",
+    "visibility": "public",
     "runners": {
       "configs": {
         "project://wildfly": {
-          "ram": 0,
-          "variables": {},
-          "options": {}
+          "options": {
+          },
+          "variables": {
+          },
+          "ram": 0
         }
       },
       "default": "project://wildfly"
     },
     "builders": {
-      "configs": {},
       "default": "maven"
     },
     "description": "my-memo - A Simple Web App for Managing Memos",
@@ -21,5 +24,7 @@
       "language": ["java"]
     }
   },
+  "variables": [
+  ],
   "v": "2.0"
 }
