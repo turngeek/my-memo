@@ -11,7 +11,7 @@
     "runners": {
       "configs": {
         "project://wildfly": {
-          "ram": 512,
+          "ram": 256,
           "variables": {},
           "options": {}
         }
