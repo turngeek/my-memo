@@ -9,7 +9,7 @@
           },
           "variables": {
           },
-          "ram": 0
+          "ram": 2048
         }
       },
       "default": "project://wildfly"
