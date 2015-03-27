@@ -2,13 +2,13 @@
   "project": {
     "runners": {
       "configs": {
-        "system:/java/web/glassfish4": {
+        "project://wildfly": {
           "ram": 0,
           "variables": {},
           "options": {}
         }
       },
-      "default": "system:/java/web/glassfish4"
+      "default": "project://wildfly"
     },
     "builders": {
       "configs": {},
