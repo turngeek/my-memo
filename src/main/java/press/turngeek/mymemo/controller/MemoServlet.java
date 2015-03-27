@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import press.turngeek.mymemo.model.Memo;
-import press.turngeek.mymemo.view.MemoViewRenderer;
 
 @WebServlet({"/MemoServlet", "/memos"})
 public class MemoServlet extends HttpServlet {
@@ -73,12 +72,8 @@ public class MemoServlet extends HttpServlet {
         }
     }
 
-    private void sendResponse(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("utf-8");
-        String err = (String)request.getAttribute("err");
-        List<Memo> memos = getMemos(request);
-        response.getOutputStream().print(MemoViewRenderer.renderResponse(memos, err));
+    private void sendResponse(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        config.getServletContext().getRequestDispatcher("/WEB-INF/memos.jsp").forward(request, response);
     }
 
     private List<Memo> getMemos(HttpServletRequest request) {
