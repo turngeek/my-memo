@@ -1,15 +1,19 @@
 {
+  "source": {
+    "project": {
+      "location": "https://github.com/turngeek/my-memo.git",
+      "type": "git"
+    }
+  },
   "project": {
     "name": "my-memo",
     "visibility": "public",
     "runners": {
       "configs": {
         "project://wildfly": {
-          "options": {
-          },
-          "variables": {
-          },
-          "ram": 2048
+          "ram": 512,
+          "variables": {},
+          "options": {}
         }
       },
       "default": "project://wildfly"
