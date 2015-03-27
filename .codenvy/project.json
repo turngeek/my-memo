@@ -1,1 +1,25 @@
-{"builders":{"default":"maven"},"runners":{"configs":{"system:/java/web/glassfish4":{"ram":0,"variables":{},"options":{}}},"default":"system:/java/web/glassfish4"},"description":"Project skeleton for my-memo","type":"maven","attributes":{}}
+{
+  "project": {
+    "runners": {
+      "configs": {
+        "system:/java/web/glassfish4": {
+          "ram": 0,
+          "variables": {},
+          "options": {}
+        }
+      },
+      "default": "system:/java/web/glassfish4"
+    },
+    "builders": {
+      "configs": {},
+      "default": "maven"
+    },
+    "description": "my-memo - A Simple Web App for Managing Memos",
+    "type": "maven",
+    "attributes": {
+      "languageVersion": ["1.6"],
+      "language": ["java"]
+    }
+  },
+  "v": "2.0"
+}
