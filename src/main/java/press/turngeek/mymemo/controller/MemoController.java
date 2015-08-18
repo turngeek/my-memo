@@ -1,27 +1,28 @@
 package press.turngeek.mymemo.controller;
 
-import java.util.Date;
 import java.util.List;
-import java.util.LinkedList;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
+import javax.ejb.EJB;
 
 import javax.faces.event.ActionEvent;
 
 import press.turngeek.mymemo.model.Memo;
+import press.turngeek.mymemo.service.MemoServiceBean;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(name = "memoController")
 public class MemoController {
 
-    private Memo       memo;
-    private List<Memo> memos;
+    private Memo            memo;
+
+    @EJB
+    private MemoServiceBean memoService;
 
     public MemoController() {
-		memos=new LinkedList<>();
-		memo=new Memo();
-	}
+        memo = new Memo();
+    }
 
     public Memo getMemo() {
         return memo;
@@ -31,20 +32,16 @@ public class MemoController {
         this.memo = memo;
     }
 
-    public void doSave(ActionEvent event) {
-        Memo newMemo = new Memo();
-        newMemo.setDescription(memo.getDescription());
-        newMemo.setCreated(new Date());
-        memos.add(newMemo);
+    public void doAdd(ActionEvent event) {
+        memoService.addMemo(memo);
         memo.setDescription("");
     }
 
     public void doReset(ActionEvent event) {
-        memos.clear();
+        memoService.resetMemos();
     }
 
     public List<Memo> getMemos() {
-        return memos;
+        return memoService.getAllMemos();
     }
-
 }
