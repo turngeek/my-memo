@@ -1,24 +1,28 @@
 package press.turngeek.mymemo.controller;
 
+
+import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.ejb.EJB;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import javax.faces.event.ActionEvent;
 
 import press.turngeek.mymemo.model.Memo;
 import press.turngeek.mymemo.service.MemoServiceBean;
 
-@SessionScoped
-@ManagedBean(name = "memoController")
-public class MemoController {
+@ViewScoped
+@Named
+public class MemoController implements Serializable {
 
-    private Memo            memo;
+    private static final long serialVersionUID = 8994022512914167890L;
 
-    @EJB
-    private MemoServiceBean memoService;
+    private Memo              memo;
+
+    @Inject
+    private MemoServiceBean   memoService;
 
     public MemoController() {
         memo = new Memo();

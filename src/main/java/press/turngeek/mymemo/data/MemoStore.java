@@ -1,25 +1,28 @@
 package press.turngeek.mymemo.data;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.LinkedList;
 
-import javax.ejb.Singleton;
+import javax.enterprise.context.SessionScoped;
 
 import press.turngeek.mymemo.model.Memo;
 
-@Singleton
-public class MemoStore {
+@SessionScoped
+public class MemoStore implements Serializable {
 
-    private List<Memo> memos;
+    private static final long serialVersionUID = -3258831452772896931L;
+
+    private List<Memo>        memos;
 
     public MemoStore() {
-        super();
         memos = new LinkedList<Memo>();
     }
 
     public List<Memo> findAll() {
         return memos;
     }
+
 
     public void persist(Memo memo) {
         memos.add(memo);
